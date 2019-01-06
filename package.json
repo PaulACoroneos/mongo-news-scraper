@@ -1,0 +1,28 @@
+{
+  "name": "mongo-news-scraper",
+  "version": "1.0.0",
+  "description": "A web scraper for news articles using MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulACoroneos/mongo-news-scraper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulACoroneos/mongo-news-scraper/issues"
+  },
+  "homepage": "https://github.com/PaulACoroneos/mongo-news-scraper#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.1",
+    "morgan": "^1.9.1",
+    "semantic-ui": "^2.4.2"
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="app.js"></script>
+  <script src="assets/js/semantic.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Echo JS Mongo Scraper</title>
+</head>
+
+<body>
+
+  <div class="ui secondary pointing menu">
+    <div class="header item">
+      Echo JS Scraper
+    </div>
+    <a class="active item" href="/">
+      Home
+    </a>
+    <a class="item" href="/articles">
+      Saved Articles
+    </a>
+    <button class="ui primary button">
+      Scrape Articles
+    </button>
+  </div>
+  <div class="ui column grid container">
+    <div class="row">
+      <div class="column">
+        <div class="ui message">
+          <h1 class="ui header">Echo JS Mongo Scraper</h1>
+          <p>This is a scraper for echojs.com using Node Express, Mongo, and Semantic UI.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ui column grid container">
+      <div id="articles"></div>
+      <div id="notes"></div>
+    </div>
+  </div>
+</body>
+
+</html>
