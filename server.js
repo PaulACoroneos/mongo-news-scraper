@@ -77,7 +77,7 @@ app.get('/articles', (req, res) => {
   db.Article.find({})
     // If all articles are successfully found, send them back to the client
     .then(dbArticle => {
-      res.json(dbArticle);
+      res.send(dbArticle);
     })
     .catch(err => {
       // If an error occurs, send the error back to the client

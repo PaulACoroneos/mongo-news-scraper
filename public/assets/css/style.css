@@ -1,3 +1,10 @@
 html,body {
-    background-color:mistyrose;
+    background-color:#003366;
+}
+
+.ui.secondary.pointing.menu{
+    background-color:white;
+}
+.ui.secondary.pointing.menu .active.item {
+    border-color:#00BFFF;
 }

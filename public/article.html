@@ -17,10 +17,10 @@
     <div class="header item">
       Echo JS Scraper
     </div>
-    <a class="active item" href="/">
+    <a class="item" href="/">
       Home
     </a>
-    <a class="item" href="/articles">
+    <a class="active item" href="/articles">
       Saved Articles
     </a>
     <form action="/scrape" method="get">
@@ -29,20 +29,10 @@
       </button>
     </form>
   </div>
-  <div class="ui column grid container main">
-    <div class="row">
-      <div class="column">
-        <div class="ui message">
-          <h1 class="ui header">Echo JS Mongo Scraper</h1>
-          <div class="ui divider"></div>
-          <p>This is a scraper for echojs.com using Node Express, Mongo, and Semantic UI.</p>
-        </div>
-      </div>
-    </div>
-    <div class="ui column grid container">
-      <div id="articles" class="ui four cards"></div>
-      <div id="notes"></div>
-    </div>
+  <div class="ui column grid container">
+    <div id="articles" class="ui four cards"></div>
+    <div id="notes"></div>
+  </div>
   </div>
 </body>
 
