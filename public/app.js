@@ -1,11 +1,16 @@
 // Grab the articles as a json
 $.getJSON('/articles', data => {
+  // `<p data-id='${data[i]._id}'>${data[i].title}<br />${data[i].link}</p>`
   // For each one
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i += 1) {
     // Display the apropos information on the page
-    $('#articles').append(
-      `<p data-id='${data[i]._id}'>${data[i].title}<br />${data[i].link}</p>`
-    );
+    $('#articles').append(`<div class="card"><div class="content">
+    <div class="header" data-id='${data[i]._id}'>${
+      data[i].title
+    }</div></div><div class="content">
+    <a class="description" href="${data[i].link}" target="_blank">${
+      data[i].link
+    }</a></div><div class="extra content"><div class="ui primary button">Save Article</div></div></div>`);
   }
 });
 
