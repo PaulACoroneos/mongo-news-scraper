@@ -1,21 +1,21 @@
 // Grab the articles as a json
-$.getJSON('/articles', data => {
+$.getJSON('/articles', (data) => {
   // `<p data-id='${data[i]._id}'>${data[i].title}<br />${data[i].link}</p>`
   // For each one
   for (let i = 0; i < data.length; i += 1) {
     // Display the apropos information on the page
     $('#articles').append(`<div class="card"><div class="content">
     <div class="header" data-id='${data[i]._id}'>${
-      data[i].title
-    }</div></div><div class="content">
+  data[i].title
+}</div></div><div class="content">
     <a class="description" href="${data[i].link}" target="_blank">${
-      data[i].link
-    }</a></div><div class="extra content"><div class="ui primary button">Save Article</div></div></div>`);
+  data[i].link
+}</a></div><div class="extra content"><form action="/save" method="get"><div class="ui primary button">Save Article</div></form></div></div>`);
   }
 });
 
 // Whenever someone clicks a p tag
-$(document).on('click', 'p', function() {
+$(document).on('click', 'p', () => {
   // Empty the notes from the note section
   $('#notes').empty();
   // Save the id from the p tag
@@ -27,7 +27,7 @@ $(document).on('click', 'p', function() {
     url: `/articles/${thisId}`,
   })
     // With that done, add the note information to the page
-    .then(data => {
+    .then((data) => {
       console.log(data);
       // The title of the article
       $('#notes').append(`<h2>${data.title}</h2>`);
@@ -37,7 +37,7 @@ $(document).on('click', 'p', function() {
       $('#notes').append("<textarea id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       $('#notes').append(
-        `<button data-id='${data._id}' id='savenote'>Save Note</button>`
+        `<button data-id='${data._id}' id='savenote'>Save Note</button>`,
       );
 
       // If there's a note in the article
@@ -51,7 +51,7 @@ $(document).on('click', 'p', function() {
 });
 
 // When you click the savenote button
-$(document).on('click', '#savenote', function() {
+$(document).on('click', '#savenote', () => {
   // Grab the id associated with the article from the submit button
   const thisId = $(this).attr('data-id');
 
@@ -67,7 +67,7 @@ $(document).on('click', '#savenote', function() {
     },
   })
     // With that done
-    .then(data => {
+    .then((data) => {
       // Log the response
       console.log(data);
       // Empty the notes section
