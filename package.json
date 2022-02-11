@@ -20,7 +20,7 @@
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "mongoose": "^5.4.1",
     "morgan": "^1.9.1",
     "semantic-ui": "^2.4.2"
