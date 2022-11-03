@@ -23,7 +23,7 @@
     "express-handlebars": "^3.0.0",
     "mongoose": "^5.4.1",
     "morgan": "^1.9.1",
-    "semantic-ui": "^2.4.2"
+    "semantic-ui": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
