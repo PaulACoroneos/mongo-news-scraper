@@ -4,6 +4,7 @@
   "description": "A web scraper for news articles using MongoDB",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
