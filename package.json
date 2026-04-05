@@ -4,8 +4,10 @@
   "description": "A web scraper for news articles using MongoDB",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "packageManager": "pnpm@10.33.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PaulACoroneos/mongo-news-scraper.git"
@@ -17,11 +19,11 @@
   },
   "homepage": "https://github.com/PaulACoroneos/mongo-news-scraper#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.13.5",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "mongoose": "^5.4.1",
+    "express-handlebars": "^5.3.5",
+    "mongoose": "^6.13.6",
     "morgan": "^1.9.1",
     "semantic-ui": "^2.4.2"
   },
