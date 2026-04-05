@@ -104,17 +104,11 @@ app.get('/articles/:id', (req, res) => {
 app.post('/articles/:id', (req, res) => {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
-    .then((dbNote) => {
-      // If a Note was created successfully, find one Article with an `_id`
-      // equal to `req.params.id`. Update the Article to be associated with the new Note.
-      // { new: true } returns the updated document instead of the original.
-      // Our mongoose query returns a promise, so we chain another `.then`.
-      db.Article.findOneAndUpdate(
-        { _id: req.params.id },
-        { note: dbNote._id },
-        { new: true },
-      );
-    })
+    .then(dbNote => db.Article.findOneAndUpdate(
+      { _id: req.params.id },
+      { note: dbNote._id },
+      { new: true },
+    ))
     .then((dbArticle) => {
       // If we were able to successfully update an Article, send it back to the client
       res.json(dbArticle);
