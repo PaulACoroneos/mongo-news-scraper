@@ -28,10 +28,14 @@
     "semantic-ui": "^2.4.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
+    "@types/jquery": "^4.0.0",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.5.2",
     "eslint": "^9.39.4",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2",
-    "globals": "^17.4.0"
+    "globals": "^17.4.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.58.0"
   }
 }
