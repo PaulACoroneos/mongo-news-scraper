@@ -3,7 +3,7 @@ name: mongo-news-scraper ci
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 jobs:
@@ -22,11 +22,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: lts/*
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --ignore-scripts --frozen-lockfile
 
       - name: Lint
         run: pnpm run lint

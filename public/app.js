@@ -1,5 +1,9 @@
+/**
+ * @typedef {{ _id: string, title: string, link: string, note?: { title: string, body: string } }} Article
+ */
+
 // Grab the articles as a json
-$.getJSON('/articles', (data) => {
+$.getJSON('/articles', (/** @type {Article[]} */ data) => {
   // `<p data-id='${data[i]._id}'>${data[i].title}<br />${data[i].link}</p>`
   // For each one
   for (let i = 0; i < data.length; i += 1) {
@@ -27,7 +31,7 @@ $(document).on('click', 'p', () => {
     url: `/articles/${thisId}`,
   })
     // With that done, add the note information to the page
-    .then((data) => {
+    .then((/** @type {Article} */ data) => {
       console.log(data);
       // The title of the article
       $('#notes').append(`<h2>${data.title}</h2>`);

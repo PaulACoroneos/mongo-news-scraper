@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Save a reference to the Schema constructor
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 // Using the Schema constructor, create a new NoteSchema object
 // This is similar to a Sequelize model

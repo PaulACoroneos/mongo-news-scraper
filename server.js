@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
-const axios = require('axios');
+/** @type {import('axios').AxiosStatic} */
+const axios = /** @type {any} */ (require('axios'));
 const cheerio = require('cheerio');
 
 // Require all models
@@ -27,27 +28,27 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Connect to the Mongo DB
-mongoose.connect('mongodb://localhost/unit18Populater');
+void mongoose.connect('mongodb://localhost/unit18Populater');
 
 // Routes
 
 // A GET route for scraping the echoJS website
 app.get('/scrape', (req, res) => {
   // First, we grab the body of the html with axios
-  axios.get('http://www.echojs.com/').then((response) => {
+  void axios.get('http://www.echojs.com/').then((/** @type {import('axios').AxiosResponse<string>} */ response) => {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     const $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $('article h2').each((i, element) => {
+    $('article h2').each((_i, element) => {
       // Save an empty result object
       const result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
+      result.title = $(element)
         .children('a')
         .text();
-      result.link = $(this)
+      result.link = $(element)
         .children('a')
         .attr('href');
 
@@ -104,12 +105,11 @@ app.get('/articles/:id', (req, res) => {
 app.post('/articles/:id', (req, res) => {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
-    .then((dbNote) => {
-      // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
-      // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
-      // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-      db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
-    })
+    .then((dbNote) => db.Article.findOneAndUpdate(
+      { _id: req.params.id },
+      { note: dbNote._id },
+      { new: true },
+    ))
     .then((dbArticle) => {
       // If we were able to successfully update an Article, send it back to the client
       res.json(dbArticle);
@@ -121,9 +121,13 @@ app.post('/articles/:id', (req, res) => {
 });
 
 app.get('/save', (req, res) => {
-  db.Article.create(req.body).then((dbArticle) => {
-    db.Article.
-  })
+  db.Article.create(req.body)
+    .then((dbArticle) => {
+      res.json(dbArticle);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 // Start the server
