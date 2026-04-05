@@ -104,7 +104,7 @@ app.get('/articles/:id', (req, res) => {
 app.post('/articles/:id', (req, res) => {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
-    .then(dbNote => db.Article.findOneAndUpdate(
+    .then((dbNote) => db.Article.findOneAndUpdate(
       { _id: req.params.id },
       { note: dbNote._id },
       { new: true },
